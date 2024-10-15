@@ -9,11 +9,11 @@ import { RiFileAddFill } from 'react-icons/ri';
 
 const links = [
   { name: 'Accueil', href: '/admin.com', icon: FaHome },
-  { name: 'Recruteur', href: '/recruteur', icon: PiUserSquareFill },
-  { name: 'Candidat', href: '/candidate', icon: FaUser },
-  { name: 'Offre', href: '/offre', icon: FaBriefcase },
-  { name: 'CV', href: '/cv', icon: BsFileEarmarkTextFill },
-  { name: 'Candidature', href: '/candidature', icon: RiFileAddFill },
+  { name: 'Recruteur', href: '/admin.com/recruteur', icon: PiUserSquareFill },
+  { name: 'Candidate', href: '/admin.com/candidate', icon: FaUser },
+  { name: 'Offre', href: '/admin.com/offre', icon: FaBriefcase },
+  { name: 'CV', href: '/admin.com/cv', icon: BsFileEarmarkTextFill },
+  { name: 'Candidature', href: '/admin.com/candidature', icon: RiFileAddFill },
 ];
 
 export default function SideNav({ isCollapsed, toggleSideNav }) {
