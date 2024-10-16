@@ -16,7 +16,7 @@ export default function PrivateRoute() {
     <div>
       <Routes>
         <Route path='' element={<Login/>} />
-        <Route path='/admin.com' element={<AdminDash />}>
+        <Route path='admin.com' element={<AdminDash />}>
        
           <Route index element={<Analitics />} /> 
           <Route path="recruteur" element={<Recruiter />} />
@@ -26,8 +26,8 @@ export default function PrivateRoute() {
           <Route path='candidature' element={ <CandidatureA/> }  />
         
         </Route>
-        <Route path='/candidate.com' element={<CandidateDash/>} />
-        <Route path='/recruteur.com' element={<RecruiterDash/>} />
+        <Route path='candidate.com' element={<CandidateDash/>} />
+        <Route path='recruteur.com' element={<RecruiterDash/>} />
       </Routes>
     </div>
   )
