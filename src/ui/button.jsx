@@ -24,7 +24,7 @@ const Button = React.forwardRef(({ children, variant = 'default', size = 'defaul
     <button
       ref={ref}
       className={clsx(
-        'flex items-center rounded-lg font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 aria-disabled:cursor-not-allowed aria-disabled:opacity-50',
+        'flex items-center whitespace-nowrap rounded-lg font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 aria-disabled:cursor-not-allowed aria-disabled:opacity-50',
         buttonVariants[variant],
         buttonSizes[size],
         className

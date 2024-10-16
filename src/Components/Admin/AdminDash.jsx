@@ -37,11 +37,11 @@ export default function AdminDash() {
   const getPageTitle = () => {
     switch (location.pathname) {
       case '/admin.com':
-        return 'Dashboard admin';
+        return 'Tableau de bord';
       case '/admin.com/recruteur':
         return 'Recruteur';
       case '/admin.com/candidate':
-        return 'Candidat';
+        return 'Candidate';
       case '/admin.com/offre':
         return 'Offre';
       case '/admin.com/cv':
@@ -69,7 +69,7 @@ export default function AdminDash() {
       >
         {/* Debut du header */}
         <div
-          className={`fixed top-0 right-0 h-[68px] bg-white backdrop-blur-[150px] z-10 border-b-2 border-black/10 flex items-center justify-between px-4 transition-all duration-300`}
+          className={`fixed top-0 right-0 h-[68px] bg-white/5 backdrop-blur-[150px] z-10 border-b-2 border-black/10 flex items-center justify-between px-4 transition-all duration-300`}
           style={{ left: isSmallScreen ? '5rem' : isCollapsed ? '5rem' : '16rem' }} 
         >
           <div className="md:w-80">
@@ -80,7 +80,7 @@ export default function AdminDash() {
         {/* Fin du header */}
 
         {/* Contenu défilable sous le header */}
-        <div className="mt-[68px] h-[calc(100vh-68px)] overflow-y-auto p-4">
+        <div className="mt-[68px] h-[calc(100vh-68px)] overflow-y-auto">
           <Outlet/>
         </div>
       </div>
