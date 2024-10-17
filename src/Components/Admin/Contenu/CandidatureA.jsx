@@ -1,146 +1,62 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Search from '../../../ui/Dashboard/Search';
 import { AiOutlineLeft } from 'react-icons/ai';
-import OffreCard from '../../../ui/Dashboard/Content/OffreCard';
+import CandidatureCard from '../../../ui/Dashboard/Content/CandCard';
 
 export default function CandidatureA() {
-  // Gestion de l'état pour l'onglet actif
-  const [activeTab, setActiveTab] = useState('tous');
-
-  // Fonction pour changer d'onglet
-  const handleTabChange = (tab) => {
-    setActiveTab(tab);
-  };
-
-  
-
-  const offres = [
+  // Example offers with candidates
+  const offers = [
     {
-      entreprise: 'Company A',
-      datePublication: '12 Oct 2024',
-      titrePoste: 'UI Designer',
-      competence: 'Design thinking, UX/UI principles',
-      experience: '3 years of experience',
-      taches: 'Create and manage design components...',
-      statut: 'validée',
-      typePoste: 'Design',
-      modeTravail: 'Remote'
+      company: 'Entreprise A',
+      jobTitle: 'Assistant Commercial',
+      daysPublished: 1,
+      requirements: ['Gestion', 'Comptabilité', 'Finance'],
+      location: 'Antananarivo',
+      candidates: [
+        { name: 'Alice', role: 'Commercial', bgColor: 'blue', experience: '3 years', skills: ['Gestion', 'Comptabilité'] },
+        { name: 'Bob', role: 'Assistant', bgColor: 'green', experience: '2 years', skills: ['Finance', 'Gestion'] },
+        { name: 'Charlie', role: 'Analyste', bgColor: 'red', experience: '5 years', skills: ['Comptabilité', 'Finance'] },
+        { name: 'Diana', role: 'Comptable', bgColor: 'purple', experience: '4 years', skills: ['Comptabilité', 'Audit'] },
+      ]
     },
     {
-      entreprise: 'Company B',
-      datePublication: '10 Oct 2024',
-      titrePoste: 'Backend Developer',
-      competence: 'Node.js, Express, MongoDB',
-      experience: '5 years of experience',
-      taches: 'Develop APIs and integrate services...',
-      statut: 'en attente',
-      typePoste: 'Développement',
-      modeTravail: 'Onsite'
-    },
-    {
-      entreprise: 'Company A',
-      datePublication: '12 Oct 2024',
-      titrePoste: 'UI Designer',
-      competence: 'Design thinking, UX/UI principles',
-      experience: '3 years of experience',
-      taches: 'Create and manage design components...',
-      statut: 'validée',
-      typePoste: 'Design',
-      modeTravail: 'Remote'
-    },
-    {
-      entreprise: 'Company B',
-      datePublication: '10 Oct 2024',
-      titrePoste: 'Backend Developer',
-      competence: 'Node.js, Express, MongoDB',
-      experience: '5 years of experience',
-      taches: 'Develop APIs and integrate services...',
-      statut: 'Refusé',
-      typePoste: 'Développement',
-      modeTravail: 'Onsite'
-    },
+      company: 'Entreprise B',
+      jobTitle: 'Développeur Web',
+      daysPublished: 3,
+      requirements: ['JavaScript', 'React', 'Node.js'],
+      location: 'Antsirabe',
+      candidates: [
+        { name: 'Eve', role: 'Fullstack Developer', bgColor: 'yellow', experience: '4 years', skills: ['JavaScript', 'React'] },
+        { name: 'Frank', role: 'Backend Developer', bgColor: 'blue', experience: '6 years', skills: ['Node.js', 'Express'] },
+      ]
+    }
   ];
-  
-  // Function to filter CVs based on active tab
-  const filtered = offres.filter(offre => activeTab === "tous" || offre.statut === activeTab);
 
   return (
     <div>
-      {/* Header avec le lien retour et le titre */}
+      {/* Header with Back Link */}
       <div className="w-full py-6 p-4 flex items-start flex-col justify-center gap-1 bg-gray-100 border-b-2 border-black/10">
-        <Link
-          to="/admin.com"
-          className="text-sm flex items-center gap-2 text-gray-500 hover:cursor-pointer hover:text-blue-400"
-        >
+        <Link to="/admin.com" className="text-sm flex items-center gap-2 text-gray-500 hover:text-blue-400">
           <AiOutlineLeft /> Retour au tableau de bord
         </Link>
-        <p className="font-medium">Candiature de candidat aux offre créer par les sociétés et entreprises.</p>
+        <p className="font-medium">Candidatures de candidats aux offres créées par les sociétés et entreprises.</p>
       </div>
 
-      {/* Barre de recherche et navigation des onglets */}
+      {/* Search Bar */}
       <div className="w-full p-4 flex items-center justify-between">
-        {/* Navigation des statuts */}
-        <div className="flex gap-1 justify-center bg-gray-100 p-1 rounded-lg shadow-sm">
-            {/* Onglet "Tous" */}
-            <div
-              className={`cursor-pointer whitespace-nowrap py-2 px-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                activeTab === 'tous' ? 'bg-blue-500 text-white shadow-md' : 'bg-gray-200 text-gray-600'
-              } hover:bg-blue-400 hover:text-white`}
-              onClick={() => handleTabChange('tous')}
-            >
-              Tous
-            </div>
-            {/* Onglet "En attente" */}
-            <div
-              className={`cursor-pointer whitespace-nowrap py-2 px-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                activeTab === 'en attente' ? 'bg-blue-500 text-white shadow-md' : 'bg-gray-200 text-gray-600'
-              } hover:bg-blue-400 hover:text-white`}
-              onClick={() => handleTabChange('en attente')}
-            >
-              En attente
-            </div>
-
-            {/* Onglet "Validée" */}
-            <div
-              className={`cursor-pointer py-2 px-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                activeTab === 'validée' ? 'bg-blue-500 text-white shadow-md' : 'bg-gray-200 text-gray-600'
-              } hover:bg-blue-400 hover:text-white`}
-              onClick={() => handleTabChange('validée')}
-            >
-              Validée
-            </div>
-                
-            {/* Onglet "Refusée" */}
-            <div
-              className={`cursor-pointer py-2 px-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                activeTab === 'refusée' ? 'bg-blue-500 text-white shadow-md' : 'bg-gray-200 text-gray-600'
-              } hover:bg-blue-400 hover:text-white`}
-              onClick={() => handleTabChange('refusée')}
-            >
-              Refusée
-            </div>
-          </div>
+        <p className="text-lg">Liste des candidatures aux offres publiées</p>
         <div className="flex gap-2">
           <Search />
         </div>
       </div>
-        
 
-      {/* Contenu affiché selon l'onglet actif */}
+      {/* Candidature Cards */}
       <div className="p-4">
-
-      
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-          {filtered.map((offre, index) => (
-            <OffreCard key={index} offre={offre} />
-          ))}
-        </div>
- 
-
-        
-
+        {offers.map((offer, index) => (
+          <CandidatureCard key={index} offer={offer} />
+        ))}
       </div>
     </div>
-  )
+  );
 }

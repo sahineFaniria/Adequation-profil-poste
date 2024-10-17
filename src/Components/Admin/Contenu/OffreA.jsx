@@ -56,7 +56,7 @@ export default function OffreA() {
       competence: 'Node.js, Express, MongoDB',
       experience: '5 years of experience',
       taches: 'Develop APIs and integrate services...',
-      statut: 'Refusé',
+      statut: 'refusée',
       typePoste: 'Développement',
       modeTravail: 'Onsite'
     },
