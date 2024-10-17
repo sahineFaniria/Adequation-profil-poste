@@ -6,6 +6,7 @@ import { FaHome, FaUser, FaBriefcase } from 'react-icons/fa';
 import { PiUserSquareFill } from 'react-icons/pi';
 import { BsFileEarmarkTextFill } from 'react-icons/bs';
 import { RiFileAddFill } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 
 const links = [
   { name: 'Accueil', href: '/admin.com', icon: FaHome },
@@ -54,10 +55,10 @@ export default function SideNav({ isCollapsed, toggleSideNav }) {
         <div className="border-b border-gray-300 my-1"></div>
         <form>
           <p className={`${isCollapsed ? 'text-[6px]' : 'text-[6px] md:text-[10px]'}  font-semibold my-2 h-1 p-2 px-3 text-black/40`} >DECONNEXION</p>
-          <button className={`flex h-[48px] w-full items-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-blue-100 hover:text-blue-500 md:flex-none ${isCollapsed ? 'justify-center' : 'justify-center md:justify-start'}   md:p-2 md:px-3`}>
-            <FaPowerOff className='w-6 text-gray-500' />
-            <div className={`${isCollapsed ? 'hidden' : 'hidden md:block'}  text-gray-500`}>Sign Out</div>
-          </button>
+          <Link to="/" className={`flex h-[48px] w-full items-center gap-2 rounded-md text-gray-500 bg-gray-50 p-3 text-sm font-medium hover:bg-blue-100 hover:text-blue-500 md:flex-none ${isCollapsed ? 'justify-center' : 'justify-center md:justify-start'}   md:p-2 md:px-3`}>
+            <FaPowerOff className='w-6' />
+            <div className={`${isCollapsed ? 'hidden' : 'hidden md:block'}  `}>Sign Out</div>
+          </Link>
         </form>
       </div>
     </div>

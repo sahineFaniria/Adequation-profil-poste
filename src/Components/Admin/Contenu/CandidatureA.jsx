@@ -8,7 +8,7 @@ export default function CandidatureA() {
   // Example offers with candidates
   const offers = [
     {
-      company: 'Entreprise A',
+      company: 'FID',
       jobTitle: 'Assistant Commercial',
       daysPublished: 1,
       requirements: ['Gestion', 'Comptabilité', 'Finance'],
@@ -17,17 +17,46 @@ export default function CandidatureA() {
         { name: 'Alice', role: 'Commercial', bgColor: 'blue', experience: '3 years', skills: ['Gestion', 'Comptabilité'] },
         { name: 'Bob', role: 'Assistant', bgColor: 'green', experience: '2 years', skills: ['Finance', 'Gestion'] },
         { name: 'Charlie', role: 'Analyste', bgColor: 'red', experience: '5 years', skills: ['Comptabilité', 'Finance'] },
-        { name: 'Diana', role: 'Comptable', bgColor: 'purple', experience: '4 years', skills: ['Comptabilité', 'Audit'] },
+        { name: 'Diana', role: 'Comptable', bgColor: 'pink', experience: '4 years', skills: ['Comptabilité', 'Audit'] },
       ]
     },
     {
-      company: 'Entreprise B',
+      company: 'Rio Tinto',
       jobTitle: 'Développeur Web',
       daysPublished: 3,
       requirements: ['JavaScript', 'React', 'Node.js'],
       location: 'Antsirabe',
       candidates: [
         { name: 'Eve', role: 'Fullstack Developer', bgColor: 'yellow', experience: '4 years', skills: ['JavaScript', 'React'] },
+        { name: 'Frank', role: 'Backend Developer', bgColor: 'blue', experience: '6 years', skills: ['Node.js', 'Express'] },
+      ]
+    },
+    {
+      company: 'ONN Anosy',
+      jobTitle: 'Assistant Commercial',
+      daysPublished: 1,
+      requirements: ['Gestion', 'Comptabilité', 'Finance'],
+      location: 'Antananarivo',
+      candidates: [
+        
+        { name: 'Bob', role: 'Assistant', bgColor: 'green', experience: '2 years', skills: ['Finance', 'Gestion'] },
+        { name: 'Charlie', role: 'Analyste', bgColor: 'red', experience: '5 years', skills: ['Comptabilité', 'Finance'] },
+        { name: 'Diana', role: 'Comptable', bgColor: 'pink', experience: '4 years', skills: ['Comptabilité', 'Audit'] },
+        { name: 'Alice', role: 'Commercial', bgColor: 'blue', experience: '3 years', skills: ['Gestion', 'Comptabilité'] },
+        { name: 'Bob', role: 'Assistant', bgColor: 'green', experience: '2 years', skills: ['Finance', 'Gestion'] },
+        { name: 'Charlie', role: 'Analyste', bgColor: 'red', experience: '5 years', skills: ['Comptabilité', 'Finance'] },
+        { name: 'Diana', role: 'Comptable', bgColor: 'pink', experience: '4 years', skills: ['Comptabilité', 'Audit'] },
+      ]
+    },
+    {
+      company: 'DRENN',
+      jobTitle: 'Développeur Web',
+      daysPublished: 3,
+      requirements: ['JavaScript', 'React', 'Node.js'],
+      location: 'Antsirabe',
+      candidates: [
+        { name: 'Eve', role: 'Fullstack Developer', bgColor: 'yellow', experience: '4 years', skills: ['JavaScript', 'React'] },
+        { name: 'Frank', role: 'Backend Developer', bgColor: 'blue', experience: '6 years', skills: ['Node.js', 'Express'] },
         { name: 'Frank', role: 'Backend Developer', bgColor: 'blue', experience: '6 years', skills: ['Node.js', 'Express'] },
       ]
     }
@@ -45,14 +74,14 @@ export default function CandidatureA() {
 
       {/* Search Bar */}
       <div className="w-full p-4 flex items-center justify-between">
-        <p className="text-lg">Liste des candidatures aux offres publiées</p>
+        <p className="font-medium">Liste des candidatures aux offres publiées</p>
         <div className="flex gap-2">
           <Search />
         </div>
       </div>
 
       {/* Candidature Cards */}
-      <div className="p-4">
+      <div className="border-t border-gray-300">
         {offers.map((offer, index) => (
           <CandidatureCard key={index} offer={offer} />
         ))}
