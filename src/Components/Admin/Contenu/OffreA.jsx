@@ -13,6 +13,8 @@ export default function OffreA() {
     setActiveTab(tab);
   };
 
+  
+
   const offres = [
     {
       entreprise: 'Company A',
@@ -60,7 +62,8 @@ export default function OffreA() {
     },
   ];
   
-  
+  // Function to filter CVs based on active tab
+  const filtered = offres.filter(offre => activeTab === "tous" || offre.statut === activeTab);
 
   return (
     <div>
@@ -77,12 +80,8 @@ export default function OffreA() {
 
       {/* Barre de recherche et navigation des onglets */}
       <div className="w-full p-4 flex items-center justify-between">
-        <p className="font-medium">Liste récente</p>
-        <div className="flex gap-2">
-          <Search />
-
-          {/* Navigation des statuts */}
-          <div className="flex gap-1 justify-center bg-gray-100 p-1 rounded-lg shadow-sm">
+        {/* Navigation des statuts */}
+        <div className="flex gap-1 justify-center bg-gray-100 p-1 rounded-lg shadow-sm">
             {/* Onglet "Tous" */}
             <div
               className={`cursor-pointer whitespace-nowrap py-2 px-2 rounded-lg text-sm font-medium transition-all duration-300 ${
@@ -122,6 +121,8 @@ export default function OffreA() {
               Refusée
             </div>
           </div>
+        <div className="flex gap-2">
+          <Search />
         </div>
       </div>
         
@@ -129,43 +130,15 @@ export default function OffreA() {
       {/* Contenu affiché selon l'onglet actif */}
       <div className="p-4">
 
-      {activeTab === 'tous' && (
+      
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-          {offres.map((offre, index) => (
+          {filtered.map((offre, index) => (
             <OffreCard key={index} offre={offre} />
           ))}
         </div>
-      )}
+ 
 
-        {activeTab === 'en attente' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-            {offres
-              .filter((offre) => offre.statut === 'en attente')
-              .map((offre, index) => (
-                <OffreCard key={index} offre={offre} />
-              ))}
-          </div>
-        )}
-
-        {activeTab === 'validée' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-            {offres
-              .filter((offre) => offre.statut === 'validée')
-              .map((offre, index) => (
-                <OffreCard key={index} offre={offre} />
-              ))}
-          </div>
-        )}
-
-        {activeTab === 'refusée' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-            {offres
-              .filter((offre) => offre.statut === 'Refusé')
-              .map((offre, index) => (
-                <OffreCard key={index} offre={offre} />
-              ))}
-          </div>
-        )}
+        
 
       </div>
     </div>

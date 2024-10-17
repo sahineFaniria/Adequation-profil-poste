@@ -2,19 +2,19 @@ import React from 'react';
 
 export default function OffreCard({ offre }) {
   return (
-    <div className="bg-gray-50 border border-gray-200 rounded-lg shadow p-4 flex flex-col justify-between">
+    <div className="bg-gray-50 hover:bg-white/10 border border-gray-200 rounded-lg hover:shadow-md hover:shadow-blue-300 p-4 flex flex-col justify-between">
       {/* Nom de l'entreprise et date de publication */}
       <div className="text-gray-600 font-medium">
-        {offre.entreprise}, <span className="text-sm">{offre.datePublication}</span>
+          {offre.entreprise}, <span className="text-xs text-black/90 font-bold">{offre.datePublication}</span>
       </div>
       
       {/* Titre du poste */}
-      <h3 className="text-base font-semibold mt-2 text-black">{offre.titrePoste}</h3>
+      <h3 className="text-base font-bold mt-2 text-black">{offre.titrePoste}</h3>
 
       {/* Exigences */}
       <div className="mt-2">
         <p className="font-semibold text-sm text-black/80">Exigences:</p>
-        <ul className="list-disc list-inside text-gray-600 text-[14px]">
+        <ul className="list-disc list-inside text-sm text-gray-500">
           <li>{offre.competence}</li>
           <li>{offre.experience}</li>
         </ul>
@@ -22,8 +22,8 @@ export default function OffreCard({ offre }) {
 
       {/* Tâches à faire */}
       <div className="mt-2">
-        <p className="font-semibold text-black/80">Tâches à faire:</p>
-        <p className="text-gray-700 text-xs">{offre.taches}</p>
+        <p className="font-semibold text-black/80 text-sm">Tâches à faire:</p>
+        <p className="text-gray-500 text-xs">{offre.taches}</p>
       </div>
 
       {/* Statut, Type de poste, Mode de travail */}
