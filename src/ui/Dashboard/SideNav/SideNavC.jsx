@@ -8,8 +8,8 @@ import { BsFileEarmarkTextFill } from 'react-icons/bs';
 import { RiFileAddFill } from 'react-icons/ri';
 
 const links = [
-    { name: 'Accueil', href: '/candidate.com', icon: FaHome },
-    { name: 'Recruteur', href: '/recruteur', icon: PiUserSquareFill },
+    { name: 'Acceuil', href: '/candidate.com', icon: FaHome },
+    { name: 'Profile', href: '/recruteur', icon: PiUserSquareFill },
     { name: 'Offre', href: '/offre', icon: FaBriefcase },
     { name: 'Candidature', href: '/candidature', icon: RiFileAddFill },
   ];
