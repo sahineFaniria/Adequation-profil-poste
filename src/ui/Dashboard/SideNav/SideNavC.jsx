@@ -2,16 +2,15 @@ import React from 'react';
 import NavLinks from '../NavLinks';
 import { FaPowerOff } from 'react-icons/fa';
 import { TbNotebook } from 'react-icons/tb';
-import { FaHome, FaUser, FaBriefcase } from 'react-icons/fa';
+import { FaHome, FaBriefcase } from 'react-icons/fa';
 import { PiUserSquareFill } from 'react-icons/pi';
-import { BsFileEarmarkTextFill } from 'react-icons/bs';
 import { RiFileAddFill } from 'react-icons/ri';
 
 const links = [
     { name: 'Acceuil', href: '/candidate.com', icon: FaHome },
-    { name: 'Profile', href: '/recruteur', icon: PiUserSquareFill },
-    { name: 'Offre', href: '/offre', icon: FaBriefcase },
-    { name: 'Candidature', href: '/candidature', icon: RiFileAddFill },
+    { name: 'Profile', href: '/candidate.com/profile', icon: PiUserSquareFill },
+    // { name: 'Offre', href: '/candidate.com/offre', icon: FaBriefcase },
+    { name: 'Mes demandes', href: '/candidate.com/demande', icon: RiFileAddFill },
   ];
 
 export default function SideNavC({ isCollapsed, toggleSideNav }) {

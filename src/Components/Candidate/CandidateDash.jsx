@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SideNavC from '../../ui/Dashboard/SideNav/SideNavC';
 import Search from '../../ui/Dashboard/Search';
 import Outils from '../../ui/Dashboard/outils';
+import { Outlet } from 'react-router-dom';
 
 
 function useMediaQuery(query) {
@@ -59,10 +60,7 @@ export default function CandidateDash() {
 
         {/* Contenu défilable sous le header */}
         <div className="mt-[68px] h-[calc(100vh-68px)] overflow-y-auto">
-          <div className=" h-24 p-4 bg-gray-100">
-            <p className="text-2xl font-semibold text-black/80">Dashboard Candidate</p>
-          </div>
-
+          <Outlet/>
         </div>
       </div>
     </div>

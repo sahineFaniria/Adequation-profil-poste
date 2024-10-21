@@ -10,6 +10,9 @@ import CandidateA from '../Components/Admin/Contenu/CandidateA'
 import OffreA from '../Components/Admin/Contenu/OffreA'
 import CvA from '../Components/Admin/Contenu/CvA'
 import CandidatureA from '../Components/Admin/Contenu/CandidatureA'
+import Accueil from '../Components/Candidate/Contenu/Accueil'
+import Profile from '../Components/Candidate/Contenu/Profile'
+import Postulation from '../Components/Candidate/Contenu/Postulation'
 
 export default function PrivateRoute() {
   return (
@@ -26,7 +29,13 @@ export default function PrivateRoute() {
           <Route path='candidature' element={ <CandidatureA/> }  />
         
         </Route>
-        <Route path='candidate.com' element={<CandidateDash/>} />
+        <Route path='candidate.com' element={<CandidateDash/>}>
+
+          <Route index element={<Accueil/>} />
+          <Route path='profile' element={<Profile/>} />
+          <Route path='demande' element={<Postulation/>} />
+
+        </Route>
         <Route path='recruteur.com' element={<RecruiterDash/>} />
       </Routes>
     </div>
