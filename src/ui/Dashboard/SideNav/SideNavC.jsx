@@ -5,6 +5,7 @@ import { TbNotebook } from 'react-icons/tb';
 import { FaHome, FaBriefcase } from 'react-icons/fa';
 import { PiUserSquareFill } from 'react-icons/pi';
 import { RiFileAddFill } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 
 const links = [
     { name: 'Acceuil', href: '/candidate.com', icon: FaHome },
@@ -39,12 +40,32 @@ export default function SideNavC({ isCollapsed, toggleSideNav }) {
       <div className="border-b border-gray-300 my-1"></div>
 
 
-      <div className="flex flex-col justify-between space-y-2">
-        <p className={`${isCollapsed ? 'text-[6px]' : 'text-[6px] md:text-[10px]'}  font-semibold my-2 h-1 p-2 px-3 text-black/40`} >MENU PRINCIPAL</p>
+      <div className="flex flex-col justify-between">
+        {/* Lien Postuler avec un fond gris distinct et une icône avec un fond blanc */}
+        <Link
+          to="/postuler"
+          className={`flex h-[48px] w-[60%] grow items-center mt-2 hover:border hover:border-gray-300 ${isCollapsed ? 'justify-center' : 'justify-center md:justify-start '} gap-2 rounded-md p-3 text-sm font-medium flex-none px-3  hover:bg-gray-200 text-gray-700`}
+        >
+          {/* Icône avec un fond blanc */}
+          <div className="bg-white shadow-inner shadow-gray-200 rounded-lg p-1">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 21v-2a4 4 0 00-8 0v2M12 11a4 4 0 100-8 4 4 0 000 8z" />
+            </svg>
+          </div>
+          {!isCollapsed && <p className="hidden md:block">Postuler +</p>}
+        </Link>
+
+        {/* Texte Menu Principal */}
+        <p className={`${isCollapsed ? 'text-[6px]' : 'text-[6px] md:text-[10px]'} font-semibold my-4 h-1 p-2 px-3 text-black/40`}>MENU PRINCIPAL</p>
+
+        {/* Liens de navigation */}
+        <div className=" space-y-2">
         {links.map((link) => (
           <NavLinks key={link.name} name={link.name} href={link.href} icon={link.icon} isCollapsed={isCollapsed} />
         ))}
+        </div>
       </div>
+
 
       {/* Ligne et bouton Sign Out en bas */}
       <div className="mt-auto"> {/* mt-auto pousse cet élément vers le bas */}

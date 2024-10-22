@@ -73,7 +73,7 @@ export default function Accueil() {
 
         {/* Search Bar */}
         <div className="w-full p-4 flex items-center justify-between">
-        <p className="font-medium">Liste des candidatures aux offres publiées</p>
+        <p className="font-medium">Toutes les offres d'emplois à Madagascar</p>
         <div className="flex gap-2">
             <Search />
         </div>
