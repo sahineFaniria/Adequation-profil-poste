@@ -51,8 +51,8 @@ export default function CandidateDash() {
           className={`fixed top-0 right-0 h-[68px] bg-white backdrop-blur-[150px] z-10 border-b-2 border-black/10 flex items-center justify-between px-4 transition-all duration-300`}
           style={{ left: isSmallScreen ? '5rem' : isCollapsed ? '5rem' : '16rem' }} // Responsive left
         >
-          <div className="md:w-80">
-            <Search />
+          <div className="md:w-80 text-lg font-semibold text-black/80">
+            Candidat
           </div>
           <Outils />
         </div>

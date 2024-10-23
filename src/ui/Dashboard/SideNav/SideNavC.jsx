@@ -9,9 +9,9 @@ import { Link } from 'react-router-dom';
 
 const links = [
     { name: 'Acceuil', href: '/candidate.com', icon: FaHome },
-    { name: 'Profile', href: '/candidate.com/profile', icon: PiUserSquareFill },
+    { name: 'Mon profile', href: '/candidate.com/profile', icon: PiUserSquareFill },
     // { name: 'Offre', href: '/candidate.com/offre', icon: FaBriefcase },
-    { name: 'Mes demandes', href: '/candidate.com/demande', icon: RiFileAddFill },
+    { name: 'Ma candidature', href: '/candidate.com/demande', icon: RiFileAddFill },
   ];
 
 export default function SideNavC({ isCollapsed, toggleSideNav }) {
@@ -43,8 +43,8 @@ export default function SideNavC({ isCollapsed, toggleSideNav }) {
       <div className="flex flex-col justify-between">
         {/* Lien Postuler avec un fond gris distinct et une icône avec un fond blanc */}
         <Link
-          to="/postuler"
-          className={`flex h-[48px] w-[60%] grow items-center mt-2 hover:border hover:border-gray-300 ${isCollapsed ? 'justify-center' : 'justify-center md:justify-start '} gap-2 rounded-md p-3 text-sm font-medium flex-none px-3  hover:bg-gray-200 text-gray-700`}
+          to="/candidate.com/cv"
+          className={`flex h-[48px] w-[80%] grow items-center mt-2 hover:border hover:border-gray-300 ${isCollapsed ? 'justify-center' : 'justify-center md:justify-start '} gap-2 rounded-md p-3 text-sm font-medium flex-none px-3  hover:bg-gray-200 text-gray-700`}
         >
           {/* Icône avec un fond blanc */}
           <div className="bg-white shadow-inner shadow-gray-200 rounded-lg p-1">
@@ -52,7 +52,7 @@ export default function SideNavC({ isCollapsed, toggleSideNav }) {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 21v-2a4 4 0 00-8 0v2M12 11a4 4 0 100-8 4 4 0 000 8z" />
             </svg>
           </div>
-          {!isCollapsed && <p className="hidden md:block">Postuler +</p>}
+          {!isCollapsed && <p className="hidden md:block">Soumettre un CV</p>}
         </Link>
 
         {/* Texte Menu Principal */}
