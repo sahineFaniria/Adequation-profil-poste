@@ -5,13 +5,13 @@ import { TbNotebook } from 'react-icons/tb';
 import { FaHome, FaUser, FaBriefcase } from 'react-icons/fa';
 import { PiUserSquareFill } from 'react-icons/pi';
 import { RiFileAddFill } from 'react-icons/ri';
+import { Link, NavLink } from 'react-router-dom';
 
 const links = [
     { name: 'Accueil', href: '/recruteur.com', icon: FaHome },
-    { name: 'Mon profile', href: '/recruteur', icon: PiUserSquareFill },
-    { name: 'Candidat', href: '/candidate', icon: FaUser },
-    { name: 'Mes offres', href: '/offre', icon: FaBriefcase },
-    { name: 'Candidature', href: '/candidature', icon: RiFileAddFill },
+    { name: 'Mon profile', href: '/recruteur.com/profile', icon: PiUserSquareFill },
+    // { name: 'Candidat', href: '/candidate', icon: FaUser },
+    { name: 'Mes offres', href: '/recruteur.com/offre', icon: FaBriefcase },
   ];
 
 export default function SideNavR({ isCollapsed, toggleSideNav }) {
@@ -40,22 +40,43 @@ export default function SideNavR({ isCollapsed, toggleSideNav }) {
       <div className="border-b border-gray-300 my-1"></div>
 
 
-      <div className="flex flex-col justify-between space-y-2">
-        <p className={`${isCollapsed ? 'text-[6px]' : 'text-[6px] md:text-[10px]'}  font-semibold my-2 h-1 p-2 px-3 text-black/40`} >MENU PRINCIPAL</p>
+      <div className="flex flex-col justify-between">
+        {/* Lien Postuler avec un fond gris distinct et une icône avec un fond blanc */}
+        <NavLink
+          to="/recruteur.com/creer-offre"
+          className={({ isActive }) => `  
+          flex h-[48px] w-[90%] grow items-center mt-2 hover:border hover:border-gray-300 
+           ${isActive ? 'border border-gray-300 bg-gray-200 text-black-700' : 'text-gray-700 hover:bg-gray-100 '}
+          ${isCollapsed ? 'justify-center' : 'justify-center md:justify-start '} gap-2 rounded-md p-3 text-sm font-medium flex-none px-3  hover:bg-gray-200 `}
+        >
+          {/* Icône avec un fond blanc */}
+          <div className="bg-white shadow-inner shadow-gray-200 rounded-lg p-2">
+            <RiFileAddFill className="h-4 w-4 text-gray-700" />
+          </div>
+          {!isCollapsed && <p className="hidden md:block">+Créer offre d'emploi</p>}
+        </NavLink>
+
+        {/* Texte Menu Principal */}
+        <p className={`${isCollapsed ? 'text-[6px]' : 'text-[6px] md:text-[10px]'} font-semibold my-4 h-1 p-2 px-3 text-black/40`}>MENU PRINCIPAL</p>
+
+        {/* Liens de navigation */}
+        <div className=" space-y-2">
         {links.map((link) => (
           <NavLinks key={link.name} name={link.name} href={link.href} icon={link.icon} isCollapsed={isCollapsed} />
         ))}
+        </div>
       </div>
+
 
       {/* Ligne et bouton Sign Out en bas */}
       <div className="mt-auto"> {/* mt-auto pousse cet élément vers le bas */}
         <div className="border-b border-gray-300 my-1"></div>
         <form>
           <p className={`${isCollapsed ? 'text-[6px]' : 'text-[6px] md:text-[10px]'}  font-semibold my-2 h-1 p-2 px-3 text-black/40`} >DECONNEXION</p>
-          <button className={`flex h-[48px] w-full items-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-blue-100 hover:text-blue-500 md:flex-none ${isCollapsed ? 'justify-center' : 'justify-center md:justify-start'}   md:p-2 md:px-3`}>
-            <FaPowerOff className='w-6 text-gray-500' />
-            <div className={`${isCollapsed ? 'hidden' : 'hidden md:block'}  text-gray-500`}>Sign Out</div>
-          </button>
+          <Link to="/" className={`flex h-[48px] w-full items-center gap-2 rounded-md text-gray-500 bg-gray-50 p-3 text-sm font-medium hover:bg-blue-100 hover:text-blue-500 md:flex-none ${isCollapsed ? 'justify-center' : 'justify-center md:justify-start'}   md:p-2 md:px-3`}>
+            <FaPowerOff className='w-6' />
+            <div className={`${isCollapsed ? 'hidden' : 'hidden md:block'}  `}>Sign Out</div>
+          </Link>
         </form>
       </div>
     </div>

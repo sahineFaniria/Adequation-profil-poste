@@ -14,6 +14,10 @@ import Accueil from '../Components/Candidate/Contenu/Accueil'
 import Profile from '../Components/Candidate/Contenu/Profile'
 import Postulation from '../Components/Candidate/Contenu/Postulation'
 import SoumetCv from '../Components/Candidate/Contenu/SoumetCv'
+import AllOffre from '../Components/Recruiter/contenu/AllOffre'
+import MyProfile from '../Components/Recruiter/contenu/MyProfile'
+import MesOffre from '../Components/Recruiter/contenu/MesOffre'
+import CreerOffre from '../Components/Recruiter/contenu/CreerOffre'
 
 export default function PrivateRoute() {
   return (
@@ -38,7 +42,12 @@ export default function PrivateRoute() {
           <Route path='cv' element={<SoumetCv/>} />
 
         </Route>
-        <Route path='recruteur.com' element={<RecruiterDash/>} />
+        <Route path='recruteur.com' element={<RecruiterDash/>} >
+          <Route index element={<AllOffre/>} />
+          <Route path='profile' element={<MyProfile/>} />
+          <Route path='creer-offre' element={<CreerOffre/>} />
+          
+        </Route>
       </Routes>
     </div>
   )

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Search from '../../ui/Dashboard/Search';
 import Outils from '../../ui/Dashboard/outils';
 import SideNavR from '../../ui/Dashboard/SideNav/SideNavR';
+import { Outlet } from 'react-router-dom';
 
 
 function useMediaQuery(query) {
@@ -51,8 +52,8 @@ export default function RecruiterDash() {
           className={`fixed top-0 right-0 h-[68px] bg-white backdrop-blur-[150px] z-10 border-b-2 border-black/10 flex items-center justify-between px-4 transition-all duration-300`}
           style={{ left: isSmallScreen ? '5rem' : isCollapsed ? '5rem' : '16rem' }} // Responsive left
         >
-          <div className="md:w-80">
-            <Search />
+          <div className="md:w-80 text-lg font-semibold text-black/80">
+            Recruteur
           </div>
           <Outils />
         </div>
@@ -60,10 +61,7 @@ export default function RecruiterDash() {
 
         {/* Contenu défilable sous le header */}
         <div className="mt-[68px] h-[calc(100vh-68px)] overflow-y-auto">
-          <div className=" h-24 p-4 bg-gray-100">
-            <p className="text-2xl font-semibold text-black/80">Dashboard Recruiter</p>
-          </div>
-
+          <Outlet/>
         </div>
       </div>
     </div>
