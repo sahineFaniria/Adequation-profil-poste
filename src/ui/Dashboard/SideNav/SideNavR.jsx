@@ -45,7 +45,7 @@ export default function SideNavR({ isCollapsed, toggleSideNav }) {
         <NavLink
           to="/recruteur.com/creer-offre"
           className={({ isActive }) => `  
-          flex h-[48px] w-[90%] grow items-center mt-2 hover:border hover:border-gray-300 
+          flex h-[48px] w-[100%] grow items-center mt-2 hover:border hover:border-gray-300 
            ${isActive ? 'border border-gray-300 bg-gray-200 text-black-700' : 'text-gray-700 hover:bg-gray-100 '}
           ${isCollapsed ? 'justify-center' : 'justify-center md:justify-start '} gap-2 rounded-md p-3 text-sm font-medium flex-none px-3  hover:bg-gray-200 `}
         >
@@ -53,7 +53,7 @@ export default function SideNavR({ isCollapsed, toggleSideNav }) {
           <div className="bg-white shadow-inner shadow-gray-200 rounded-lg p-2">
             <RiFileAddFill className="h-4 w-4 text-gray-700" />
           </div>
-          {!isCollapsed && <p className="hidden md:block">+Créer offre d'emploi</p>}
+          {!isCollapsed && <p className="hidden md:block">+Créer une offre d'emploi</p>}
         </NavLink>
 
         {/* Texte Menu Principal */}

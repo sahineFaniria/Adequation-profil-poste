@@ -46,6 +46,7 @@ export default function PrivateRoute() {
           <Route index element={<AllOffre/>} />
           <Route path='profile' element={<MyProfile/>} />
           <Route path='creer-offre' element={<CreerOffre/>} />
+          <Route path='offre' element={<MesOffre/>} />
           
         </Route>
       </Routes>
