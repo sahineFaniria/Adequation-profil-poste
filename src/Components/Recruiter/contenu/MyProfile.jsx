@@ -41,7 +41,7 @@ export default function MyProfile() {
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-start">
           <div className="bg-blue-500 text-white rounded-full p-4">
-            <FaBuilding className="h-20 w-20" />
+            <FaBuilding className="h-10 w-10" />
           </div>
           <div className="ml-4">
             {/* Titre et champ pour le nom de l'entreprise */}
